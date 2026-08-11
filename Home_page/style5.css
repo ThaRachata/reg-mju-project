@@ -1,0 +1,247 @@
+/* เมนูสไลด์ข้าง */
+
+/* 1. ซ่อน Checkbox */
+.menu-checkbox {
+  display: none;
+}
+
+/* 2. ม่าน */
+.menu-overlay {
+  position: fixed; /* สั่งให้ลอยอยู่กับที่ */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998; /* ให้อยู่เหนือหน้าเว็บปกติ แต่อยู่ใต้กล่องเมนู */
+  opacity: 0;
+  visibility: hidden; /* ซ่อนไว้ */
+  transition: all 0.3s ease;
+}
+
+/* 3. ตัวกล่องเมนูสไลด์ */
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* บังคับให้ซ่อนอยู่ทางขวา */
+  width: 280px;
+  height: 100vh; /* ความสูงเต็มจอ */
+  background-color: #ffffff;
+  z-index: 999;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease; /* สไลด์มาทางขวา */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4. เมื่อ Checkbox ถูกคลิ้ก ให้ม่านโผล่มา */
+.menu-checkbox:checked ~ .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 5.  เมื่อ Checkbox ถูกคลิ้ก ให้ดึงเมนูกลับมาในจอ */
+.menu-checkbox:checked ~ .sidebar-menu {
+  right: 0;
+}
+
+/* ด้านในกล่องเมนู (Header & Links) */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between; /* ดันปุ่มภาษาไปซ้ายสุด ดันกากบาทไปขวาสุด */
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+/* เมนูแบบเงา */
+.sidebar-links {
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* ระยะห่างระหว่างแต่ละกล่อง */
+  overflow-y: auto; /* เผื่อเมนูเยอะจนล้นจอ ให้ใช้นิ้วไถเลื่อนลงได้ */
+  padding-bottom: 40px; /* เว้นที่ว่างด้านล่างสุด */
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+  color: #444444; /* เปลี่ยนสีตัวหนังสือ */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 16px; /* ใช้ Padding ขยายพื้นที่ข้างในกล่อง*/
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-left: 5px solid #2e8b57; /* แถบสีเขียวด้านซ้าย */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* เงา */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+/* เอฟเฟกต์ตอนเอาเม้าส์ชี้ */
+.sidebar-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  color: #2e8b57;
+}
+
+.sidebar-links .material-symbols-outlined {
+  color: #777777;
+  font-size: 24px;
+  transition: color 0.2s ease;
+}
+
+/* สถานะ Active (สำหรับหน้าที่กำลังเปิดอยู่ เช่น หน้าแรก)*/
+.sidebar-links a.active {
+  color: #2e8b57;
+  font-weight: 600;
+  background-color: #f4fbf7;
+}
+
+.sidebar-links a.active .material-symbols-outlined {
+  color: #2e8b57; /* ไอคอนสีเขียว */
+}
+
+/* ตอน Hover ให้ไอคอนเปลี่ยนสีตามด้วย */
+.sidebar-links a:hover .material-symbols-outlined {
+  color: #2e8b57;
+}
+
+.mobile-lang-switch {
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.mobile-lang-switch a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+.mobile-lang-switch a.active {
+  color: #2e8b57;
+}
+.mobile-lang-switch .separator {
+  color: #dddddd;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #2e8b57;
+}
+
+/* ระบบเมนูย่อย */
+/* ซ่อน Checkbox ของเมนูย่อย */
+.dropdown-checkbox {
+  display: none;
+}
+
+/* กล่องป้ายชื่อหมวดหมู่  */
+.dropdown-label {
+  display: flex;
+  justify-content: space-between; /* แยกข้อความซ้าย ลูกศรไปขวา */
+  align-items: center;
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-left: 5px solid #2e8b57;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #444444;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.label-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dropdown-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  color: #2e8b57;
+}
+
+.dropdown-label .material-symbols-outlined {
+  color: #777777;
+  transition:
+    transform 0.3s ease,
+    color 0.2s ease;
+}
+
+.dropdown-label:hover .material-symbols-outlined {
+  color: #2e8b57;
+}
+
+/* กล่องเมนูย่อย */
+.dropdown-menu {
+  max-height: 0; /* ซ่อนโดยปรับความสูงเป็น 0 */
+  overflow: hidden; /* ของที่ล้นออกมาให้ตัดทิ้ง */
+  transition: max-height 0.3s ease-in-out; /* แอนิเมชันตอนยืดลงมา */
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  border-radius: 0 0 8px 8px;
+  margin: 0 10px; 
+}
+
+/* ตกแต่งลิงก์ข้างในเมนูย่อย */
+.dropdown-menu a {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: #555555;
+  border-radius: 0;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-menu a:hover {
+  color: #2e8b57;
+  background-color: #f0f7f3;
+  border-left: 3px solid #2e8b57; /* แถบสีเขียวโผล่มาตอนชี้ */
+  transform: none; 
+}
+
+.dropdown-menu .link-arrow {
+  font-size: 16px;
+  color: #cccccc;
+}
+
+/* คำสั่งยืดเมนูเมื่อ Checkbox โดนคลิ้ก */
+/* เวลากดให้ยืดความสูงออกมา */
+.dropdown-checkbox:checked ~ .dropdown-menu {
+  max-height: 400px; /* ใส่ค่าเผื่อไว้ให้เมนูกางได้สุด */
+  padding-bottom: 8px; /* เพิ่มพื้นที่ด้านล่างหลังกาง */
+}
+
+/* เวลากดให้ลูกศรหมุน 180 องศา (ชี้ขึ้น) */
+.dropdown-checkbox:checked ~ .dropdown-label .expand-icon {
+  transform: rotate(180deg);
+  color: #2e8b57;
+}
+
+/* ให้ปุ่มหมวดหมู่เป็นสีเขียวตอนที่เปิดเมนูย่อยอยู่ */
+.dropdown-checkbox:checked ~ .dropdown-label {
+  background-color: #f4fbf7;
+  color: #2e8b57;
+  border-radius: 8px 8px 0 0;
+}

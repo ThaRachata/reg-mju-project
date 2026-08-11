@@ -1,0 +1,138 @@
+/* กล่องหุ้มเนื้อหาทั้งหมดในหน้าเว็บ (ใต้ Header) */
+.content-wrapper {
+  display: flex;
+  flex-direction: column; /* จัดวางองค์ประกอบลงมา */
+  gap: 1.5rem; /* ระยะห่างระหว่างองค์ประกอบ */
+  padding: 16px; /* ระยะห่างจากขอบ */
+  width: 100%;
+  max-width: 100%; /* จำกัดความกว้างสูงสุด(ไม่ให้กว้างเกินจอ) */
+  overflow-x: hidden; /* ป้องกันการเลื่อนขนาน */
+}
+
+/* รูปหลัก  */
+.main-section {
+  width: 100%;
+}
+
+.main-banner-box {
+  background-color: #2e8b57;
+  padding: 14px; /* ความหนาของกรอบสีพื้นหลัง */
+  border-radius: 12px; /* มุมกล่องโค้งมน */
+  box-shadow: 0 6px 16px rgba(46, 139, 87, 0.25); /* เงาสี*/
+  width: 100%;
+}
+
+.main-img {
+  width: 100%;
+  height: auto;
+  display: block; /* แสดงรูปภาพเป็น block element */
+  border-radius: 6px; /* ทำมุมรูปภาพให้โค้ง */
+}
+
+/* ส่วนเมนูลัด / บริการการศึกษา */
+.quick-services {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* ระยะห่างระหว่างหัวข้อกับเมนู */
+}
+
+.quick-services h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* ใช้ Flexbox สำหรับจอมือถือ (เรียงลงมา) */
+.card-grid {
+  display: flex;
+  flex-direction: column; /* จัดวางองค์ประกอบลงมา */
+  gap: 0.8rem; /* ระยะห่างระหว่างการ์ด */
+}
+
+/* ดีไซน์เมนู */
+.service-card {
+  display: flex; /* เปิดใช้งาน Flexbox */
+  align-items: center; /* จัดวางองค์ประกอบให้อยู่ตรงกลาง */
+  gap: 12px; /* ระยะห่างระหว่างไอคอนกับตัวหนังสือ */
+  background-color: #ffffff;
+  padding: 14px 16px; /* ระยะห่างภายใน */
+  border-radius: 8px; /* ทำมุมการ์ดให้โค้ง */
+  text-decoration: none; /* ลบเส้นใต้จากลิงก์ */
+  color: #333333; /* สีตัวหนังสือ */
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* เงาอ่อนๆ */
+  border-left: 4px solid #2e8b57; /* ขอบด้านซ้ายสีเขียว */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease; /* เวลาเกิดการเปลี่ยนแปลง (เช่น เอาเมาส์ชี้) ให้ Delayเวลา 0.2 วินาที (ทำให้ดูsmooth)*/
+}
+/* เวลาเอาเมาส์ไปวางชี้การ์ด */
+.service-card:hover {
+  transform: translateY(-2px); /* ยกการ์ดขึ้นเล็กน้อย */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* เงาเข้มขึ้น */
+}
+
+/* ตกแต่งสีไอคอนเมนู */
+.card-icon {
+  color: #2e8b57; /* เปลี่ยนสีไอคอน */
+  font-size: 26px; /* ปรับขนาดไอคอน */
+  flex-shrink: 0; /* ป้องกันไอคอนเบี้ยวเวลาตัวหนังสือยาวเกินไป */
+}
+
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ระยะห่างระหว่างรูปกับเมนู */
+}
+
+@media screen and (min-width: 768px) {
+  .card-grid {
+    display: grid; /* เปิดโหมดตาราง */
+    grid-template-columns: 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์  */
+    gap: 16px; /* เว้นระยะห่างระหว่างกล่อง  */
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  /* 1. จัดกล่องแม่  */
+  .hero-layout {
+    display: grid !important;
+    grid-template-columns: 63% 34% !important;
+    justify-content: space-between !important;
+
+    /* บังคับให้ฝั่งขวา สูงเท่ากับรูปฝั่งซ้าย */
+    align-items: stretch !important;
+
+    /*  ดันขอบไม่ให้ติดจอ  */
+    padding: 20px 40px !important;
+
+    /* ล็อคขนาดสูงสุดไม่ให้ยืดทะลุตอนเปิดจอกว้าง */
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 2. จัดโครงสร้างฝั่งขวา */
+  .quick-services {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 3. ทำให้ 6 กล่องกระจายเต็มพื้นที่บน-ล่าง */
+  .hero-layout .quick-services .card-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    /* สั่งให้กล่องเมนูขยายพื้นที่ลงมาจนสุดฐานของรูปภาพ */
+    flex-grow: 1 !important;
+
+    /* กระจาย 6 กล่องให้ห่างเท่าๆ กันตั้งแต่บนสุดจนถึงล่างสุด */
+    align-content: space-between !important;
+
+    margin-top: 16px !important; /* ดันให้ห่างลงจากคำว่า "บริการการศึกษา" */
+    gap: 12px !important; 
+  }
+}
