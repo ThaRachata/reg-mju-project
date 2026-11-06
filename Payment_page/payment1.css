@@ -1,0 +1,83 @@
+.table-container {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.student-info-header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+.student-name {
+  color: #0000aa; 
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* ทำให้ตารางปัดซ้ายขวาได้ในมือถือ */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* สั่งให้เกิดสกอร์บาร์แนวนอนถ้าล้น */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px; /* ขอบมน */
+}
+
+.erp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px; /*  ถ้าจอเล็กกว่า 900px จะล้นให้ปัดทันที */
+}
+
+.erp-table th,
+.erp-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+}
+
+.erp-table th {
+  background-color: #f5f5f5; 
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap; /* ห้ามหัวตารางโดนบีบตกบรรทัด */
+}
+
+/* จัดให้ข้อความชิดซ้าย */
+.erp-table .text-left {
+  text-align: left;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ชี้แถวตาราง */
+.erp-table tbody tr:hover {
+  background-color: #fcfcfc;
+}
+
+/* บังคับโชว์ Scrollbar แนวนอนเสมอ  */
+/* กำหนดความหนาของแถบเลื่อน */
+.table-responsive::-webkit-scrollbar {
+  height: 8px; 
+  display: block !important; /* บังคับโชว์ */
+}
+
+/* พื้นหลังของรางเลื่อน  */
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px; 
+}
+
+/* ตัวจับเลื่อน */
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+/* เวลาเอาเมาส์ไปชี้ให้สีเข้มขึ้นนิดนึง (สำหรับจอคอม) */
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

@@ -1,0 +1,377 @@
+/*  set all เลือกทุก element */
+* {
+  margin: 0; /* ลบ margin ทั้งหมด */
+  padding: 0; /* ลบ padding ทั้งหมด */
+  box-sizing: border-box;
+}
+/* ตั้งค่าทั้งหน้าเว็บไซต์ */
+body {
+  font-family: "Sarabun", sans-serif; /* กำหนด font สำหรับหน้าเว็บ */
+  background-color: #f9f9f9; /* สีพื้นหลัง */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ตั้งค่าทั้งหน้าเว็บไซต์ */
+html,
+body {
+  overflow-x: hidden; /* สั่งตัดส่วนที่ล้นออกด้านข้าง */
+  width: 100%;
+  position: relative;
+  font-family: "Sarabun", sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Mobile*/
+.site-header {
+  background-color: #ffffff; /* สีพื้นหลังของ header */
+  padding: 12px 16px; /* ระยะห่างด้านบนและด้านล่าง 12px, ด้านซ้ายและขวา 16px */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* สร้างเงา ให้ header */
+}
+
+/*กล่องที่หุ้ม โลโก้ และ ปุ่มเมนู*/
+.header-inner {
+  display: flex; /* เปิดใช้งาน Flexbox */
+  justify-content: space-between; /* สั่งให้ของชิ้นแรกชิดซ้ายสุด ชิ้นสุดท้ายชิดขวาสุด */
+  align-items: center; /* สั่งให้ของทุกชิ้นจัดให้อยู่กึ่งกลาง */
+  width: 100%; /* กำหนดความกว้างของกล่อง */
+}
+
+/* โลโก้ */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* ระยะห่างระหว่างโลโก้และข้อความ */
+}
+
+.mju-logo {
+  width: 45px;
+  height: auto;
+  flex-shrink: 0; /* ป้องกันไม่ให้โลโก้ย่อตัว */
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column; /* จัดวางข้อความเป็นแนวตั้ง */
+  justify-content: center;
+}
+
+.title-en {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222222;
+  letter-spacing: 0.5px; /* ระยะห่างระหว่างตัวอักษร */
+  line-height: 1.2; /* ระยะห่างระหว่างบรรทัด */
+}
+
+.title-th {
+  font-size: 13px;
+  font-weight: 400;
+  color: #444444;
+  line-height: 1.2;
+  margin-top: 2px; /* ระยะห่างด้านบน */
+}
+
+/* ปุ่ม  Menu  */
+.hamburger-btn {
+  background-color: #2e8b57;
+  border: none; /* ลบเส้นขอบ */
+  cursor: pointer; /* แสดง cursor แบบ pointer เมื่อเอาเมาส์ชี้ */
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* ระยะห่างระหว่างขีด */
+  padding: 7px 9px;
+  border-radius: 4px; /* ความโค้งมน */
+  box-shadow: 0 2px 4px rgba(46, 139, 87, 0.2);
+  margin-left: auto; /* ดันกล่องไปทางขวาสุด */
+}
+
+/* สร้างขีด 3 ขีด  */
+.hamburger-btn .bar {
+  width: 20px; /* ลดความกว้างของขีด  */
+  height: 3px; /* ลดความหนาของขีด*/
+  background-color: #ffffff;
+  border-radius: 2px; /* ทำมุมของขีดให้โค้ง */
+}
+
+/*  เวลากดหรือเอาเมาส์ชี้ ให้ปุ่มสีเข้มขึ้น */
+.hamburger-btn:hover,
+.hamburger-btn:active {
+  background-color: #246b43;
+}
+
+/* ซ่อนเมนูแนวนอนเมื่ออยู่ในหน้าจอมือถือ */
+.top-menu {
+  display: none;
+}
+
+
+/* กล่องหุ้มสไลเดอร์ทั้งหมด */
+.banner-slider {
+  display: flex;
+  overflow-x: auto; /* อนุญาตให้เนื้อหาล้นในแนวนอนได้  */
+  scroll-snap-type: x mandatory; /* เวลาเลื่อนจะหยุดตรงกลางพอดี */
+  scroll-behavior: smooth; /* เวลากดลูกศรจะค่อยๆเลื่อนไม่กระตุก */
+  width: 100%;
+  border-radius: 12px; /* ลบมุมรูปให้โค้งมนย */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* ซ่อนแถบ Scrollbar  */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.banner-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+.main-banner-box {
+  background-color: #2e8b57;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+
+  /* เว้นขอบบนเผื่อไว้ 200px ตอนกดลูกศร */
+  scroll-margin-top: 200px;
+
+  /* จัดรูปให้อยู่ตรงกลางเสมอ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+
+  /* บังคับให้พื้นที่รูปทุกรูปเป็นสัดส่วน 16:9 */
+  aspect-ratio: 16 / 9;
+
+  /* บังคับให้รูปแสดงผลเต็ม */
+  object-fit: contain;
+  display: block;
+}
+
+/* ลูกศรสีดำ  */
+.arrow {
+  position: absolute;
+  top: 50%; /* ดันลงมาครึ่งนึง */
+  transform: translateY(-50%); /* ดึงกลับให้ศูนย์กลาง */
+  background-color: rgba(0, 0, 0, 0.4); 
+  color: white;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* ทำให้เป็นวงกลม */
+  transition: background-color 0.2s ease;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ชี้ ลูกศรจะเข้มขึ้น */
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* ตำแหน่งลูกศรซ้าย */
+.left-arrow {
+  left: 10px;
+}
+
+/* ตำแหน่งลูกศรขวา */
+.right-arrow {
+  right: 10px;
+}
+
+.desktop-only {
+  display: none !important; /* !important = คำสั่งให้ CSS นี้มีความสำคัญสูงสุด */
+}
+
+/* หน้าจอ Tablet  (ความกว้างตั้งแต่ 768px ขึ้นไป) */
+@media screen and (min-width: 768px) {
+  /* 1. ขยายขนาดโลโก้และตัวหนังสือให้สมส่วนกับจอที่ใหญ่ขึ้น */
+  .mju-logo {
+    width: 70px;
+  }
+  .brand-text .title-en {
+    font-size: 1.3rem;
+  }
+  .brand-text .title-th {
+    font-size: 1rem;
+  }
+
+  /* 2. จัดระเบียบกล่อง Header ใหม่ ให้ซ้าย-ขวา ห่างกัน */
+  .brand-container {
+    justify-content: space-between;
+  }
+
+  /* เมนูแนวนอน*/
+  .top-menu {
+    display: flex !important; /* โชว์เมนูแนวนอน */
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  /* จัดการกล่องหมวดหมู่ที่จะมีเมนูย่อยห้อยลงมา */
+  .top-dropdown {
+    position: relative; /* ให้เมนูย่อยรู้ว่าต้องห้อยติดกับกล่องนี้ */
+    display: inline-block;
+  }
+
+  /* ปุ่มเมนูหลักด้านบน */
+  .top-link {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* ระยะห่างข้อความกับลูกศร */
+    text-decoration: none;
+    color: #444444;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 16px;
+    border-right: 1px solid #cccccc; /* เส้นคั่นสีเทา */
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  /* เอาเส้นคั่นของเมนูอันสุดท้ายออก */
+  .top-dropdown:last-child .top-link {
+    border-right: none;
+  }
+
+  .top-link .material-symbols-outlined {
+    font-size: 18px; /* ปรับลูกศร */
+    transition: transform 0.2s ease;
+  }
+
+  /* 2. เปลี่ยนสีตัวหนังสือปุ่มหลักเป็นสีเขียวตอนเอาเมาส์ชี้ */
+  .top-dropdown:hover .top-link,
+  .top-link:hover {
+    color: #2e8b57;
+  }
+
+  .top-link.active {
+    color: #1b5e20 !important; 
+    font-weight: 700 !important; 
+  }
+
+  /* กล่องเมนูย่อย (ซ่อนไว้ตอนเริ่มต้น)*/
+  .top-dropdown-content {
+    position: absolute;
+    top: 100%; /* ให้ห้อยต่อจากขอบล่างของปุ่มหลัก */
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px; /* ความกว้างของกล่องเมนูย่อย */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); 
+    border-radius: 8px;
+    border: 1px solid #eeeeee;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+
+    /* ซ่อนให้ดูสมูท ( */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* สั่งให้กล่องตกลงมา 10px ตอนถูกซ่อน */
+    transition: all 0.3s ease;
+  }
+
+  /* ลิงก์ที่อยู่ข้างในเมนูย่อย */
+  .top-dropdown-content a {
+    color: #555555;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f5f5f5; /* เส้นคั่นบางๆ ระหว่างบรรทัด */
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .top-dropdown-content a:last-child {
+    border-bottom: none;
+  }
+
+  .top-dropdown-content a:hover {
+    background-color: #f4fbf7; /* พื้นหลังตอนชี้ */
+    color: #2e8b57;
+  }
+
+  /* ตอน Hover  */
+  /* 1. โชว์เมนูย่อย */
+  .top-dropdown:hover .top-dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* กล่องกลับเข้าที่เดิม (สไลด์ขึ้น) */
+  }
+
+  /* 2. เปลี่ยนสีตัวหนังสือปุ่มหลักเป็นสีเขียว */
+  .top-dropdown:hover .top-link,
+  .top-link:hover {
+    color: #2e8b57;
+  }
+
+  /* 3. หมุนลูกศรชี้ขึ้น */
+  .top-dropdown:hover .top-link .material-symbols-outlined {
+    transform: rotate(180deg);
+  }
+
+  .hamburger-btn,
+  label[for="menu-toggle"] {
+    display: flex !important;
+  }
+
+  /* ซ่อนเมนูที่ซ้ำกันใน Hamburger เมื่ออยู่บนจอ Tablet/PC */
+  .hide-on-pc {
+    display: none !important;
+  }
+}
+
+/*  PC / Laptop (1024px ขึ้นไป) */
+@media screen and (min-width: 1024px) {
+  .hamburger-btn {
+    display: none !important; /*  ซ่อนปุ่มแฮมเบอร์เกอร์ */
+  }
+  .desktop-menu {
+    display: flex !important; /*  โชว์เมนูทั้งหมดขึ้นมาแทน */
+  }
+
+  .desktop-only {
+    display: flex !important; /* แสดงเมนูที่ 4, 5 และปุ่มภาษาออกมา */
+    align-items: center;
+  }
+
+  .hamburger-btn,
+  label[for="menu-toggle"],
+  .hide-on-pc {
+    display: none !important;
+  }
+
+  /* ปุ่มเปลี่ยนภาษา */
+  .lang-switch-desktop {
+    font-weight: 600;
+    margin-left: 20px;
+  }
+  .lang-switch-desktop a {
+    text-decoration: none;
+    color: #999999;
+    transition: color 0.2s;
+  }
+  .lang-switch-desktop a.active-lang {
+    color: #2e8b57; 
+  }
+  .lang-switch-desktop a:hover {
+    color: #1b5e20;
+  }
+}

@@ -1,0 +1,134 @@
+/* ส่วนท้ายเว็บ (Footer)  */
+.site-footer {
+  background-color: #1a1a1a; /* สีพื้นหลัง */
+  color: #cccccc; /* สีตัวหนังสือ */
+  padding-top: 40px; /* เว้นระยะจากขอบบน */
+  margin-top: 40px; /* ดันให้ห่างจากเนื้อหาหลักด้านบน */
+}
+
+/* กล่องหุ้มเนื้อหาด้านใน */
+.footer-container {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column; /* ให้เรียงซ้อนกันเป็น column */
+  gap: 32px; /* ระยะห่างระหว่างแต่ละกลุ่มข้อมูล */
+}
+
+/*  logo */
+.footer-brand {
+  display: flex;
+  align-items: center; /* จัดให้โลโก้กับตัวหนังสืออยู่กึ่งกลางเดียวกัน */
+  gap: 16px;
+}
+
+.footer-logo {
+  width: 60px; /* ล็อคขนาดโลโก้ */
+}
+
+.footer-brand-text h3 {
+  color: #ffffff; /* สีตัวหนังสือหัวข้อ */
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.footer-brand-text p {
+  font-size: 0.85rem; /* ขนาดตัวหนังสือ ชื่อ มหาวิทยาลัย */
+}
+
+/*  ช่องทางติดต่อ */
+.footer-contact h4,
+.footer-social h4,
+.footer-links h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #2e8b57; /* ขีดเส้นใต้สีเขียวตรงหัวข้อ */
+  display: inline-block; /* ทำให้เส้นใต้มีความยาวพอดีกับตัวอักษร */
+  padding-bottom: 4px;
+}
+/*  ลิงก์ที่เกี่ยวข้อง */
+.quick-links {
+  list-style: none; /* เอาจุดไข่ปลาหน้าลิสต์ออก */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ระยะห่างระหว่างบรรทัดลิงก์ */
+  text-align: left; /* จัดข้อความให้อยู่ชิดซ้าย */
+}
+
+.quick-links a {
+  color: #cccccc;
+  text-decoration: underline; /* ใส่เส้นใต้ลิงก์ */
+  text-decoration-color: rgba(204, 204, 204, 0.3); /* สีเส้นใต้ */
+  text-underline-offset: 2px; /* เว้นระยะเส้นใต้จากตัวหนังสือ */
+  font-size: 0.95rem;
+  align-items: center; /* จัดให้ลิงก์อยู่ชิดซ้าย */
+  gap: 8px; /* ระยะห่างระหว่างไอคอนลูกษรกับตัวหนังสือ */
+  transition: color 0.2s ease;
+}
+
+.link-arrow {
+  font-size: 18px; /* ปรับขนาดไอคอนลูกศร */
+  color: #2e8b57; /* สีลูกศร */
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ชี้  ให้ลิงก์สว่างเป็นสีเขียว */
+.quick-links a:hover {
+  color: #2e8b57 !important; /* เอาเมาส์ชี้เปลี่ยนเป็นสีเขียว */
+  text-decoration-color: #2e8b57 !important; /* ใส่สีให้เส้นใต้ลิงก์ตอนเอาเมาส์ชี้ */
+}
+
+.contact-list {
+  list-style: none; /* เอาจุดไข่ปลาหน้าลิสต์ออก */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start; /* จัดให้อยู่ชิดบนเผื่อที่อยู่ยาว 2 บรรทัด */
+  gap: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5; /* ระยะห่างระหว่างบรรทัด */
+}
+
+.contact-list .material-symbols-outlined {
+  color: #2e8b57;
+  font-size: 20px;
+  margin-top: 2px; /* ดันไอคอนลงมาให้ตรงกับบรรทัดตัวหนังสือ */
+}
+
+/* โซเชียลมีเดีย */
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+/* ทำปุ่มโซเชียลเป็นวงกลม */
+.social-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.social-logo:hover {
+  transform: translateY(-3px) !important; /* เอาเมาส์ชี้แล้วปุ่มเด้งขึ้น */
+  opacity: 0.8; /* สีของปุ่มตอนเอาเมาส์ชี้จะจางลง */
+}
+
+/* แถบลิขสิทธิ์ล่างสุด */
+.footer-bottom {
+  text-align: center;
+  padding: 16px;
+  background-color: #111111;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #888888;
+}

@@ -1,0 +1,168 @@
+.breadcrumb-bar {
+  background-color: #f8f9fa; /* สีพื้นหลัง ให้ดูมีมิติแยกจากส่วนอื่น */
+  padding: 12px 20px; /* ระยะขอบสำหรับมือถือ */
+  display: flex; /* จัดเรียงแนวนอน */
+  align-items: center; /* ให้อยู่กึ่งกลางแนวตั้ง */
+  margin-top: 16px; /* เว้นระยะจากส่วนอื่นด้านบน */
+  gap: 8px; /* ช่องระหว่างลูกศรกับตัวหนังสือ */
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #555555; 
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.back-link:hover {
+  color: #1b5e20; /* สีเข้มขึ้นตอนเอาเมาส์ชี้ */
+}
+
+/* ปรับขนาดไอคอนลูกศรให้พอดีกับตัวหนังสือ */
+.back-link .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.separator {
+  color: #b0b0b0; 
+}
+
+.current-page {
+  color: #2e7d32; /* สีตัวหนังสือหน้าปัจจุบัน */
+}
+
+/* ระบบค้นหารหัสนักศึกษา  */
+.search-system-container {
+  max-width: 900px; /* จำกัดความกว้างสำหรับ PC */
+  margin: 40px auto; /* จัดให้อยู่กึ่งกลาง */
+  padding: 0 20px;
+}
+
+/* --- ฟอร์มค้นหา --- */
+.student-search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ให้อยู่ตรงกลางในมือถือ */
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.search-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* --- ให้ช่องกรอกกับปุ่มรวมกัน --- */
+.search-input-group {
+  display: flex;
+  width: 100%;
+  max-width: 400px; /* ไม่ให้กล่องยาวเกินไป */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* ทำให้ปุ่มไม่ทะลุขอบมน */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+/* ลบเส้นขอบกล่องขาว */
+.search-input-group input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  border: none !important; /* บังคับลบเส้นขอบ */
+  border-radius: 0 !important; /* ลบขอบมน ไม่ให้ไปดันกล่องเขียว */
+  outline: none;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+/* ปุ่มค้นหา */
+.btn-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* ล็อกความกว้างให้เป็นกล่องจัตุรัส */
+  padding: 0; /* ล้าง padding ให้ไอคอนอยู่ตรงกลาง */
+  background-color: #2e7d32;
+  color: white;
+  border: none !important;
+  cursor: pointer;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+
+/* ขยายไอคอนแว่นขยายให้ใหญ่ขึ้น */
+.btn-check .material-symbols-outlined {
+  font-size: 24px;
+}
+
+/* ซ่อนข้อความในมือถือ */
+.btn-text {
+  display: none;
+}
+
+.result-placeholder {
+  margin-top: 30px;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border: 1px dashed #cccccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.result-placeholder h3 {
+  font-size: 20px;
+  color: #888888;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .btn-text {
+    display: block; /* แสดงคำว่าค้นหา */
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+  }
+
+  .btn-check {
+    width: auto; /* ปลดล็อกความกว้าง */
+    padding: 0 24px; /* ขยายปุ่มซ้าย-ขวา */
+    gap: 8px; /* ระยะห่างไอคอนกับตัวหนังสือ */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .breadcrumb-bar {
+    padding: 16px 80px;
+    font-size: 16px;
+  }
+
+  /* ขยายกล่องแม่ 1200px */
+  .search-system-container {
+    max-width: 1200px !important;
+  }
+
+  /* ปิดระบบปัดซ้าย-ขวาบนจอคอม */
+  .table-responsive {
+    overflow-x: visible !important; /* บังคับปิด scrollbar */
+  }
+
+  /* ซ่อนแถบเลื่อนทิ้ง */
+  .table-responsive::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* ล็อกไซส์ TH | EN */
+  .lang-switch-desktop,
+  .lang-switch-desktop a {
+    font-size: 16px !important;
+    font-weight: bold;
+  }
+}

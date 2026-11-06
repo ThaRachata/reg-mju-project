@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ชำระเงิน</title>
+    <!-- ดึงฟอนต์ Sarabun จาก Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ดึงชุดไอคอน Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <!-- ดึงไฟล์ External CSS เข้ามา -->
+    <link rel="stylesheet" href="../Home_page/style1.css" />
+    <link rel="stylesheet" href="../Home_page/style2.css" />
+    <link rel="stylesheet" href="../Home_page/style3.css" />
+    <link rel="stylesheet" href="../Home_page/style4.css" />
+    <link rel="stylesheet" href="../Home_page/style5.css" />
+    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="search1.css" />
+    <link rel="stylesheet" href="payment.css" />
+    <link rel="stylesheet" href="payment1.css" />
+  </head>
+  <body>
+    <!-- Checkbox -->
+    <!-- Checkbox  ซ่อนไว้ด้วย CSS (display: none;)-->
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+
+    <!-- ม่านที่จะโผล่มาคลุมเนื้อหาเว็บหลักตอนเมนูกางออก ใช้ for="menu-toggle เพื่อเชื่อมกับ Checkbox"-->
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <!-- กล่องเมนูสไลด์ -->
+    <!-- nav คือตัวกล่องเมนูสีขาวทั้งหมดที่จะสไลด์ออกมาจากขอบจอ -->
+    <nav class="sidebar-menu">
+      <!-- ส่วนหัว ของเมนู เพื่อเอาไว้ใส่ปุ่มเปลี่ยนภาษาและปุ่มกากบาท -->
+      <div class="sidebar-header">
+        <div class="mobile-lang-switch">
+          <a href="#" class="active">TH</a>
+          <span class="separator">|</span>
+          <a href="#">EN</a>
+        </div>
+        <!-- ปุ่มปิดกากบาท -->
+        <label for="menu-toggle" class="close-btn">
+          <span class="material-symbols-outlined">close</span>
+        </label>
+      </div>
+
+      <ul class="sidebar-links">
+        <!-- 1. เมนู: หน้าแรก -->
+        <li class="hide-on-pc">
+          <a href="../Home_page/index.html">
+            <span class="material-symbols-outlined">home</span>
+            หน้าแรก
+          </a>
+        </li>
+
+        <!-- 2. หมวดหมู่: บริการนักศึกษา -->
+        <li class="dropdown-item hide-on-pc">
+          <input type="checkbox" id="drop-student" class="dropdown-checkbox" />
+          <label for="drop-student" class="dropdown-label">
+            <div class="label-left">
+              <span class="material-symbols-outlined">school</span>
+              บริการนักศึกษา
+            </div>
+            <span class="material-symbols-outlined expand-icon"
+              >expand_more</span
+            >
+          </label>
+          <div class="dropdown-menu">
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >ข้อมูลนักศึกษา</a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >การลงทะเบียน</a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >ตารางเรียน/ตารางสอบ</a
+            >
+          </div>
+        </li>
+
+        <!-- 3. หมวดหมู่: ข้อมูลวิชาการ -->
+        <li class="dropdown-item hide-on-pc">
+          <input type="checkbox" id="drop-academic" class="dropdown-checkbox" />
+          <label for="drop-academic" class="dropdown-label">
+            <div class="label-left">
+              <span class="material-symbols-outlined">corporate_fare</span>
+              ข้อมูลวิชาการ
+            </div>
+            <span class="material-symbols-outlined expand-icon"
+              >expand_more</span
+            >
+          </label>
+          <div class="dropdown-menu">
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >ตารางการใช้ห้อง</a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >ตารางสอนอาจารย์</a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >คณะ/ภาควิชา/หน่วยงาน</a
+            >
+          </div>
+        </li>
+
+        <!-- 4. หมวดหมู่: บุคคลภายนอก -->
+        <li class="dropdown-item">
+          <input type="checkbox" id="drop-public" class="dropdown-checkbox" />
+          <label for="drop-public" class="dropdown-label">
+            <div class="label-left">
+              <span class="material-symbols-outlined">public</span>
+              บุคคลภายนอก
+            </div>
+            <span class="material-symbols-outlined expand-icon"
+              >expand_more</span
+            >
+          </label>
+          <div class="dropdown-menu">
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >ผู้สนใจเข้าศึกษา</a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >ผู้ปกครอง</a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined link-arrow"
+                >chevron_right</span
+              >บุคคลทั่วไป</a
+            >
+          </div>
+        </li>
+
+        <!-- 5. เมนู: ตอบคำถาม -->
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">contact_support</span>
+            ตอบคำถาม
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- ส่วนหัว ของเว็บไซต์ -->
+    <header class="site-header">
+      <div class="brand-container">
+        <!-- กล่องหุ้ม โลโก้,ตัวหนังสือและปุ่ม -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/th/b/b7/MJU_LOGO.svg"
+          alt="Maejo University Logo"
+          class="mju-logo"
+        />
+
+        <div class="brand-text">
+          <!-- กล่องหุ้มตัวหนังสือ -->
+          <span class="title-en">MAEJO UNIVERSITY</span>
+          <span class="title-th">ระบบบริการการศึกษา</span>
+        </div>
+
+        <!--  เมนูแนวนอนสำหรับ Tablet/PC  -->
+        <nav class="top-menu">
+          <!-- 1. เมนูเดี่ยว -->
+          <a href="../Home_page/index.html" class="top-link">หน้าแรก</a>
+
+          <!-- 2. หมวดหมู่: บริการนักศึกษา -->
+          <div class="top-dropdown">
+            <a href="#" class="top-link">
+              บริการนักศึกษา
+              <span class="material-symbols-outlined">expand_more</span>
+            </a>
+            <!-- กล่องเมนูย่อย -->
+            <div class="top-dropdown-content">
+              <a href="#">ข้อมูลนักศึกษา</a>
+              <a href="#">การลงทะเบียน</a>
+              <a href="#">ตารางเรียน/ตารางสอบ</a>
+            </div>
+          </div>
+
+          <!-- 3. หมวดหมู่: ข้อมูลวิชาการ -->
+          <div class="top-dropdown">
+            <a href="#" class="top-link">
+              ข้อมูลวิชาการ
+              <span class="material-symbols-outlined">expand_more</span>
+            </a>
+            <!-- กล่องเมนูย่อย -->
+            <div class="top-dropdown-content">
+              <a href="#">ตารางการใช้ห้อง</a>
+              <a href="#">ตารางสอนอาจารย์</a>
+              <a href="#">คณะ/ภาควิชา/หน่วยงาน</a>
+            </div>
+          </div>
+          <!-- 4. หมวดหมู่: บุคคลภายนอก -->
+          <div class="top-dropdown desktop-only">
+            <a href="#" class="top-link">
+              บุคคลภายนอก
+              <span class="material-symbols-outlined">expand_more</span>
+            </a>
+            <!-- กล่องเมนูย่อย -->
+            <div class="top-dropdown-content">
+              <a href="#">ผู้สนใจเข้าศึกษา</a>
+              <a href="#">ผู้ปกครอง</a>
+              <a href="#">บุคคลทั่วไป</a>
+            </div>
+          </div>
+          <!-- 5. เมนู: ตอบคำถาม -->
+          <div class="top-dropdown desktop-only">
+            <a href="#" class="top-link">ตอบคำถาม</a>
+          </div>
+        </nav>
+
+        <div class="lang-switch-desktop desktop-only">
+          <a href="#" class="active-lang">TH</a>
+          <span style="color: #ccc; margin: 0 8px">|</span>
+          <a href="#">EN</a>
+        </div>
+
+        <!-- ปุ่มเมนูแฮมเบอร์เกอร์(เมนู) -->
+        <label for="menu-toggle" class="hamburger-btn">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+      </div>
+    </header>
+    <div class="breadcrumb-bar">
+      <a href="../Home_page/index.html" class="back-link">
+        <span class="material-symbols-outlined">arrow_back_ios_new</span>
+        หน้าแรก
+      </a>
+      <span class="separator">/</span>
+      <span class="current-page">ภาระค่าใช้จ่ายและทุนการศึกษา</span>
+    </div>
+    <main class="page-content" style="min-height: 60vh; padding: 20px">
+      <!-- ภาระค่าใช้จ่ายและทุนการศึกษา -->
+      <div
+        class="search-system-container"
+        style="max-width: 1200px; margin: 20px auto; padding: 0 20px"
+      >
+        <div class="student-search-form" style="margin-bottom: 40px">
+          <label class="search-label">ระบุรหัสนักศึกษา</label>
+          <div class="search-input-group">
+            <input type="text" placeholder="กรอกรหัสนักศึกษา" value="" />
+            <button class="btn-check">
+              <span class="material-symbols-outlined">search</span>
+              <span class="btn-text">ค้นหา</span>
+            </button>
+          </div>
+        </div>
+        <!-- ชื่อนักศึกษาและหัวข้อ -->
+        <div
+          class="student-info-header"
+          style="text-align: left; margin-bottom: 25px"
+        >
+          <p style="font-size: 16px; font-weight: bold; color: #0000aa">
+            6804101373 : <br />
+            นายรชต บุญเที่ยง
+          </p>
+          <!-- เส้นคั่นสีส้ม-->
+          <hr
+            style="
+              border: none;
+              border-top: 1px solid #f39c12;
+              max-width: 300px;
+              width: 100%;
+              margin: 10px 0;
+            "
+          />
+          <h2 style="color: #d35400; font-size: 20px; margin-top: 10px">
+            ภาระค่าใช้จ่ายและทุนการศึกษา
+          </h2>
+          <p style="font-size: 14px; color: #555; margin-top: 5px">
+            เลือกปีการศึกษาเพื่อดูข้อมูล<br />
+            ปีการศึกษา 2568/1 , 2568/2 ,
+            <span style="color: #2e8b57; font-weight: bold">2569/1</span>
+          </p>
+        </div>
+
+        <!-- ค้างชำระ ทั้งหมด -->
+        <h3
+          style="
+            color: #8b0000;
+            font-size: 16px;
+            border-bottom: 1px solid #8b0000;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+          "
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-size: 18px; vertical-align: middle"
+            >arrow_drop_down</span
+          >
+          ค้างชำระ ทั้งหมด
+        </h3>
+
+        <div class="table-container" style="margin-top: 0; margin-bottom: 40px">
+          <div class="table-responsive">
+            <table
+              class="erp-table"
+              style="min-width: 800px; border: 1px solid #999"
+            >
+              <thead>
+                <tr style="background-color: #a4b376; color: white">
+                  <th style="border: 1px solid #fff">วันที่</th>
+                  <th style="border: 1px solid #fff">รายการ</th>
+                  <th style="border: 1px solid #fff; text-align: right">
+                    จำนวนเงิน
+                  </th>
+                  <th style="border: 1px solid #fff; text-align: right">
+                    ค้างชำระ
+                  </th>
+                  <th style="border: 1px solid #fff">เลขที่ใบเสร็จรับเงิน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- แถวหัวข้อปีการศึกษา -->
+                <tr style="background-color: #eef2e3">
+                  <td
+                    colspan="5"
+                    style="
+                      color: #0000aa;
+                      font-weight: bold;
+                      border-bottom: none;
+                    "
+                  >
+                    ปีการศึกษา 1/2569
+                  </td>
+                </tr>
+                <!-- ข้อมูล -->
+                <tr>
+                  <td style="border-top: none">22/06/26</td>
+                  <td style="border-top: none">
+                    2121 ค่าธรรมเนียมการศึกษา เหมาจ่าย
+                  </td>
+                  <td style="text-align: right; border-top: none">20,000.00</td>
+                  <td style="text-align: right; border-top: none">20,000.00</td>
+                  <td style="border-top: none"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="font-weight: bold; background-color: #f9f9f9">
+                  <td
+                    colspan="2"
+                    style="text-align: right; border-top: 2px solid #ccc"
+                  >
+                    รวม
+                  </td>
+                  <td style="text-align: right; border-top: 2px solid #ccc">
+                    20,000.00
+                  </td>
+                  <td style="text-align: right; border-top: 2px solid #ccc">
+                    20,000.00
+                  </td>
+                  <td style="border-top: 2px solid #ccc"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!--ทุนการศึกษา -->
+        <h3
+          style="
+            color: #8b0000;
+            font-size: 16px;
+            border-bottom: 1px solid #8b0000;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+          "
+        >
+          ทุนการศึกษา
+        </h3>
+
+        <div class="table-container" style="margin-top: 0">
+          <div class="table-responsive">
+            <table
+              class="erp-table"
+              style="min-width: 900px; border: 1px solid #999"
+            >
+              <thead>
+                <tr style="background-color: #a4b376; color: white">
+                  <th style="border: 1px solid #fff; text-align: center">
+                    ภาคการศึกษาที่
+                  </th>
+                  <th style="border: 1px solid #fff">ทุนการศึกษา</th>
+                  <th style="border: 1px solid #fff; text-align: right">
+                    จำนวนเงิน
+                  </th>
+                  <th style="border: 1px solid #fff; text-align: right">รับ</th>
+                  <th style="border: 1px solid #fff; text-align: center">
+                    คงเหลือ
+                  </th>
+                  <th style="border: 1px solid #fff; text-align: center">
+                    ประเภท
+                  </th>
+                  <th style="border: 1px solid #fff">ผู้ให้ทุน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center">2/2568</td>
+                  <td class="text-left">8000 : กยศ. - กองทุนเงินให้กู้ยืมเพื่อการศึกษา</td>
+                  <td style="text-align: right">20,000.00</td>
+                  <td style="text-align: right">20,000.00</td>
+                  <td style="text-align: center">-</td>
+                  <td style="text-align: center">R</td>
+                  <td>กองทุนเงินให้กู้ยืมเพื่อการศึกษา</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center">1/2569</td>
+                  <td class="text-left">8000 : กยศ. - กองทุนเงินให้กู้ยืมเพื่อการศึกษา</td>
+                  <td style="text-align: right">20,000.00</td>
+                  <td style="text-align: right">-</td>
+                  <td style="text-align: center">-</td>
+                  <td style="text-align: center">R</td>
+                  <td>กองทุนเงินให้กู้ยืมเพื่อการศึกษา</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- หมายเหตุ -->
+          <div
+            style="
+              background-color: #f9f9f9;
+              border: 1px solid #ccc;
+              padding: 15px;
+              margin-top: 15px;
+            "
+          >
+            <p style="color: #0000aa; font-weight: bold; margin-bottom: 8px">
+              หมายเหตุ ประเภท
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding-left: 0;
+                font-size: 14px;
+                color: #333;
+                line-height: 1.6;
+              "
+            >
+              <li><strong>D :</strong> ทุนที่ตัดรายการโดยการลดหนี้</li>
+              <li>
+                <strong>E :</strong> ต้องชำระเงิน - ไม่คืนส่วนที่เหลือ ( ภายนอก
+                )
+              </li>
+              <li>
+                <strong>N :</strong> ไม่ต้องชำระเงิน - ไม่คืนส่วนที่เหลือ (
+                ภายใน )
+              </li>
+              <li><strong>P :</strong> คิดแบบสัดส่วน (%)</li>
+              <li>
+                <strong>R :</strong> ไม่ต้องชำระเงิน - คืนส่วนที่เหลือ ( ทบวง )
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ส่วน Footer -->
+    <footer class="site-footer">
+      <!-- ส่วนที่ 1: ตาราง 3 คอลัมน์ -->
+      <div class="footer-container">
+        <!-- คอลัมน์ 1: โลโก้ + ติดต่อเรา -->
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/th/b/b7/MJU_LOGO.svg"
+              alt="Maejo University"
+              class="footer-logo"
+              style="width: 70px; margin-bottom: 10px"
+            />
+            <div class="footer-brand-text">
+              <h3 style="color: white; margin: 0; font-size: 1.1rem">
+                สำนักงานบริหาร
+              </h3>
+              <p style="margin: 0; font-size: 0.9rem">
+                มหาวิทยาลัยแม่โจ้ <br />(Maejo University)
+              </p>
+            </div>
+          </div>
+
+          <div class="footer-contact" style="margin-top: 20px">
+            <h4
+              style="
+                color: white;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #2e8b57;
+                display: inline-block;
+                padding-bottom: 5px;
+              "
+            >
+              ติดต่อสำนักงานทะเบียนแม่โจ้
+            </h4>
+            <ul class="contact-list">
+              <li>
+                <span class="material-symbols-outlined">location_on</span>
+                <span
+                  >63 หมู่ 4 ต.หนองหาร อ.สันทราย<br />จ.เชียงใหม่ 50290</span
+                >
+              </li>
+              <li>
+                <span class="material-symbols-outlined">call</span>
+                <span
+                  >0-5387-3000<br />
+                  0-5387-3001</span
+                >
+              </li>
+              <li>
+                <span class="material-symbols-outlined">mail</span>
+                <span>reg_mju@mju.ac.th</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- คอลัมน์ 2: โซเชียล -->
+        <div class="footer-col">
+          <div class="footer-social">
+            <h4
+              style="
+                color: white;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #2e8b57;
+                display: inline-block;
+                padding-bottom: 5px;
+              "
+            >
+              ติดตามข่าวสาร
+            </h4>
+            <div class="social-links">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
+                alt="Facebook logo"
+                class="social-logo"
+                style="width: 40px; height: 40px; border-radius: 50%"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg"
+                alt="Line logo"
+                class="social-logo"
+                style="width: 40px; height: 40px; border-radius: 50%"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1280px-YouTube_full-color_icon_%282017%29.svg.png"
+                alt="YouTube logo"
+                class="social-logo"
+                style="width: 40px; height: 40px; border-radius: 50%"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- คอลัมน์ 3: ลิงก์ที่เกี่ยวข้อง -->
+        <div class="footer-col">
+          <div class="footer-links">
+            <h4
+              style="
+                color: white;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #2e8b57;
+                display: inline-block;
+                padding-bottom: 5px;
+              "
+            >
+              ลิงก์ที่เกี่ยวข้อง
+            </h4>
+            <ul
+              class="quick-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 12px">
+                <a
+                  href="#"
+                  style="
+                    color: #cccccc;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                  "
+                  ><span class="material-symbols-outlined link-arrow"
+                    >chevron_right</span
+                  >นโยบายความเป็นส่วนตัว</a
+                >
+              </li>
+              <li style="margin-bottom: 12px">
+                <a
+                  href="#"
+                  style="
+                    color: #cccccc;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                  "
+                  ><span class="material-symbols-outlined link-arrow"
+                    >chevron_right</span
+                  >รายงานประจำปี</a
+                >
+              </li>
+              <li style="margin-bottom: 12px">
+                <a
+                  href="#"
+                  style="
+                    color: #cccccc;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                  "
+                  ><span class="material-symbols-outlined link-arrow"
+                    >chevron_right</span
+                  >คู่มือการใช้งานระบบ REG</a
+                >
+              </li>
+              <li style="margin-bottom: 12px">
+                <a
+                  href="#"
+                  style="
+                    color: #cccccc;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                  "
+                  ><span class="material-symbols-outlined link-arrow"
+                    >chevron_right</span
+                  >เว็บไซต์มหาวิทยาลัยแม่โจ้</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- จบส่วน 3 คอลัมน์ -->
+
+      <!-- แผนที่ -->
+      <div
+        class="footer-box"
+        style="padding: 0 20px 40px 20px; max-width: 1200px; margin: 0 auto"
+      >
+        <h4
+          style="
+            color: white;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #2e8b57;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-size: 1.1rem;
+          "
+        >
+          แผนที่
+        </h4>
+        <iframe
+          src="https://maps.google.com/maps?q=Maejo%20University&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="200"
+          style="
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          "
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+
+      <!-- แถบลิขสิทธิ์ -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Maejo University</p>
+      </div>
+    </footer>
+  </body>
+</html>
